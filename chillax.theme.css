@@ -49,7 +49,7 @@
 :root.theme-dark {
     --window-margin: 20px; /*must be above 20px*/
     --window-colour: rgba(148, 148, 148, 0);
-    --window-blur: 0px;
+    --window-blur: 12px;
     --window-border-radius: 20px;
     --sidebar-colour: rgba(148, 148, 148, 0);
 }
