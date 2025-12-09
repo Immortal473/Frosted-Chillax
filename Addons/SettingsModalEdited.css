@@ -1,3 +1,22 @@
+/* === REQUIRED CORE VARIABLES (Ensure these are defined in your theme) === */
+:root {
+    --main-border-radius: 25px; /* Fully Rounded Corners */
+    --floating-bg-dark: rgba(15, 15, 15, 0.45); /* Frosted Glass Dark Background */
+    --floating-bg-light: rgba(255, 255, 255, 0.65); /* Frosted Glass Light Background */
+    --glass-blur: 12px; /* Frosted Glass Effect strength */
+}
+
+/* Base Modal Container (Settings, Popups) */
+.modal-frosted {
+    /* FROSTED GLASS EFFECT */
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    border-radius: var(--main-border-radius) !important; /* Rounded */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important; /* Nicer, deep shadow */
+    border: none !important;
+}
+
+/* --- Core Styles (Preserved Positioning) --- */
+
 #app-mount .baseLayer__960e4 {
     opacity: 1 !important;
     transform: unset !important;
@@ -24,15 +43,18 @@
     pointer-events: none !important;
 }
 
+/* --- LIGHT THEME MODAL --- */
 .theme-light #app-mount .layer__960e4 ~ .layer__960e4 {
+    /* Apply Frosted Glass and Rounded Style */
+    .modal-frosted;
+    background: var(--floating-bg-light) !important;
+    
+    /* Preserve Original Layout Overrides */
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    background: var(--themelightsettingsmodalbackground) !important;
-    border-radius: 5px !important;
-    box-shadow: var(--elevation-high) !important;
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
@@ -42,15 +64,18 @@
     z-index: 1000 !important;
 }
 
+/* --- DARK THEME MODAL --- */
 .theme-dark #app-mount .layer__960e4 ~ .layer__960e4 {
+    /* Apply Frosted Glass and Rounded Style */
+    .modal-frosted;
+    background: var(--floating-bg-dark) !important;
+
+    /* Preserve Original Layout Overrides */
     position: absolute !important;
     top: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     left: 0 !important;
-    background: var(--themedarksettingsmodalbackground) !important;
-    border-radius: 5px !important;
-    box-shadow: var(--elevation-high) !important;
     width: var(--settingsmodalwidth) !important;
     height: var(--settingsmodalheight) !important;
     margin: auto !important;
@@ -59,6 +84,35 @@
     contain: unset !important;
     z-index: 1000 !important;
 }
+
+/* --- SETTINGS MODAL ROOT (Used by User Settings/Nitro) --- */
+#app-mount .root__5c9fc {
+    /* Apply Frosted Glass and Rounded Style */
+    .modal-frosted;
+    background: var(--floating-bg-dark) !important; /* Default dark theme */
+
+    /* Preserve Original Layout Overrides */
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: var(--settingsmodalwidth) !important;
+    height: var(--settingsmodalheight) !important;
+    margin: auto !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    contain: unset !important;
+    z-index: 1000 !important;
+}
+
+/* Light theme override for the settings root */
+html.theme-light #app-mount .root__5c9fc {
+    background: var(--floating-bg-light) !important;
+}
+
+
+/* --- INTERNAL TRANSPARENCY FIXES --- */
 
 #app-mount .layer__960e4 ~ .layer__960e4 > div,
 #app-mount .layer__960e4 ~ .layer__960e4 .standardSidebarView__23e6b {
@@ -70,6 +124,19 @@
     padding: unset !important;
     overflow: hidden !important;
 }
+
+/* Make Sidebar and Content transparent to see the frosted glass background */
+.theme-dark .sidebarRegion__23e6b,
+.theme-light .sidebarRegion__23e6b {
+    background: transparent !important;
+}
+
+.contentRegion__23e6b {
+    background: transparent !important;
+    zoom: 0.9 !important;
+}
+
+/* --- REST OF ORIGINAL MODAL/SETTINGS CODE (PRESERVED) --- */
 
 #app-mount .layer__960e4 ~ .layer__960e4 .sidebar__23e6b {
     width: 218px !important;
@@ -129,24 +196,6 @@
     max-width: calc(var(--settingsmodalwidth) - 730px) !important;
 }
 
-#app-mount .root__5c9fc {
-    position: fixed !important;
-    top: 0 !important;
-    right: 0 !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    background: var(--settingsmodalbackground) !important;
-    border-radius: 5px !important;
-    box-shadow: var(--elevation-high) !important;
-    width: var(--settingsmodalwidth) !important;
-    height: var(--settingsmodalheight) !important;
-    margin: auto !important;
-    padding: 0 !important;
-    overflow: hidden !important;
-    contain: unset !important;
-    z-index: 1000 !important;
-}
-
 #app-mount .root__5c9fc.enterDone__5c9fc {
     transform: unset !important;
 }
@@ -202,21 +251,26 @@
     z-index: -1 !important;
 }
 
-.theme-dark .sidebarRegion__23e6b {
-    background: var(--sidebar-colour);
+/* User Settings Internal Element Backgrounds (Frosted Nested) */
+
+/* The main sidebar background is now transparent (see above) */
+/* The Account Field Boxes get a slight frosted effect */
+html.theme-dark .field__1fed1 {
+    background-color: rgba(51, 49, 53, 0.7) !important;
+    backdrop-filter: blur(4px);
 }
 
-.theme-light .sidebarRegion__23e6b {
-    background: var(--sidebar-colour);
+html.theme-light .field__1fed1 {
+    background-color: rgba(228, 228, 228, 0.8) !important;
+    backdrop-filter: blur(4px);
 }
 
-.contentRegion__23e6b {
-    zoom: 0.9 !important;
-}
+
+/* All other original styles below */
 
 /*
- What is this one `premiumFeatureBorder__65c15?
- A comment would have helped
+  What is this one `premiumFeatureBorder__65c15?
+  A comment would have helped
 */
 
 .premiumFeatureBorder__65c15 {
@@ -321,7 +375,7 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button_a22
     overridden by a 3rd party AccountDetailsGrid addon).
     However, the repository got so I forked the addon
     to our repo for now.
- */
+*/
 .field__1fed1 {
     border-radius: 8px;
     max-height: none;
@@ -335,18 +389,6 @@ div[class="field__1fed1"] > button[aria-label="Edit username"][class="button_a22
 
 .field__1fed1 .fieldButton__1fed1 {
     background: transparent !important;
-}
-
-html.theme-dark .field__1fed1 {
-    background-color: #333135;
-}
-
-html.theme-light .field__1fed1 {
-    background-color: #e4e4e4;
-}
-
-html.theme-dark .fieldSpacerBottom__1fed1 {
-    margin-bottom: 0;
 }
 
 .field__1fed1::-webkit-scrollbar {
