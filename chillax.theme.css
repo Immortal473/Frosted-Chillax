@@ -89,14 +89,9 @@
     --rs-phone-visible: block; /* change it to `none` to disable mobile icon */
     --rs-phone-color: var(--rs-online-color);
 
-
-    --anime-neon-pink: #ff00ff; 
-    --anime-neon-blue: #00ffff;
+ 
     --accentcolor: 0, 255, 0; /* Vivid Green RGB */
     --accentcolorV2: #39ff14; /* Vivid Green Hex */
-    --rgb-border-width: 4px;
-    --rgb-gradient: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
-    --rgb-animation-duration: 8s;
 
 
     /* settings modal root */
