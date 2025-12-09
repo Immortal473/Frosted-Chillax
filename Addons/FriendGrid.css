@@ -1,110 +1,116 @@
 :root {
-    --FA-version: "v1.0.10";
+    --FA-version: "v1.0.10 - Anime Remix";
 
+    /* === ANIME/VIBRANCY PALETTE & EFFECTS === */
+    --anime-accent: #ff0077; /* Neon Pink/Magenta */
+    --anime-secondary-accent: #00ffff; /* Neon Cyan/Aqua */
+    --anime-shadow: 0 8px 30px rgba(255, 0, 119, 0.6); /* Vibrant, deep shadow */
+    --anime-card-bg-opacity: 0.9; 
+    
     --FG-row: 1fr 1fr 1fr;
 
-    --FG-search-radius: 8px;
+    --FG-search-radius: 15px; /* More rounded */
 
-    --FG-cards-radius: 8px;
-    --FG-cards-height: 180px;
-    --FG-cards-banner-background: var(--brand-experiment);
+    --FG-cards-radius: 20px; /* Significantly more rounded */
+    --FG-cards-height: 200px; /* Taller card */
+    --FG-cards-banner-background: linear-gradient(90deg, var(--anime-accent), var(--anime-secondary-accent)); /* Vibrant Gradient Banner */
     --FG-cards-margin-bottom: 26px;
-    --FG-cards-banner-height: 20px;
-    --FG-cards-border-width: 1px;
+    --FG-cards-banner-height: 45px; /* Taller banner area */
+    --FG-cards-border-width: 2px; /* Thicker, more noticeable border */
 
-    --FG-avatar-margin-top: 46px;
-    --FG-avatar-margin-left: 20px;
-    --FG-text-margin-left: 20px;
+    --FG-avatar-margin-top: 65px; /* Adjusted for taller banner/card */
+    --FG-avatar-margin-left: 25px;
+    --FG-text-margin-left: 30px;
 
+    /* Opacity Tweaks for Vivid Hover/Focus */
     --FG-cards-banner-opacity-normal: 1.0;
-    --FG-cards-banner-opacity-hover: 1.0;
+    --FG-cards-banner-opacity-hover: 1.0; 
     --FG-cards-banner-opacity-active: 1.0;
 
     --FG-cards-avatar-opacity-normal: 1.0;
-    --FG-cards-avatar-opacity-hover: 1.0;
+    --FG-cards-avatar-opacity-hover: 1.1; /* Slight scale up on hover */
     --FG-cards-avatar-opacity-active: 1.0;
 
     --FG-cards-username-opacity-normal: 1.0;
     --FG-cards-username-opacity-hover: 1.0;
     --FG-cards-username-opacity-active: 1.0;
 
-    --FG-cards-discriminator-opacity-normal: 1.0;
-    --FG-cards-discriminator-opacity-hover: 1.0;
+    --FG-cards-discriminator-opacity-normal: 0.8;
+    --FG-cards-discriminator-opacity-hover: 1.0; /* Pop on hover */
     --FG-cards-discriminator-opacity-active: 1.0;
 
-    --FG-cards-status-opacity-normal: 1.0;
-    --FG-cards-status-opacity-hover: 1.0;
+    --FG-cards-status-opacity-normal: 0.7;
+    --FG-cards-status-opacity-hover: 1.0; /* Pop on hover */
     --FG-cards-status-opacity-active: 1.0;
 
     --FG-cards-button-opacity-normal: 0.0;
     --FG-cards-button-opacity-hover: 1.0;
-    --FG-cards-button-opacity-active: 0.0;
 
     --FG-mutal-guilds-normal: 0.0;
     --FG-mutal-guilds-hover: 1.0;
     --FG-mutal-guilds-active: 1.0;
 
-    --FG-avatar-shape: 50%;
+    --FG-avatar-shape: 15px; /* Rounded Square/Squircle shape */
 
-    --FG-transition: all 0.4s ease;
+    --FG-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Bouncy/Anime-like transition */
 
     --user-accent-color: var(--FG-cards-banner-background);
 }
 
 /* ╔══════════════════════════╦═════════════════════════════════════════════════════════════════════════════[─]═[□]═[×]═╗ */
-/* ║ Dark                     ║ Here you can make settings for the Dark Theme.                                          ║ */
+/* ║ Dark - Vibrant/Anime     ║ Dark Theme adjustments for a vibrant, anime aesthetic.                                        ║ */
 /* ╚══════════════════════════╩═════════════════════════════════════════════════════════════════════════════════════════╝ */
 
 .theme-dark {
-    --FG-search-background: var(--background-tertiary);
+    --FG-search-background: rgba(30, 30, 30, 0.7);
 
-    --FG-cards-background-normal: var(--background-secondary);
-    --FG-cards-background-hover: var(--activity-card-background);
+    --FG-cards-background-normal: rgba(30, 30, 30, var(--anime-card-bg-opacity));
+    --FG-cards-background-hover: #1e1e1e;
 
-    --FG-cards-background-active: var(--activity-card-background);
+    --FG-cards-background-active: var(--FG-cards-background-hover);
 
-    --FG-cards-border-color-normal: var(--background-modifier-accent);
-    --FG-cards-border-color-hover: var(--background-modifier-accent);
+    --FG-cards-border-color-normal: rgba(255, 255, 255, 0.1);
+    --FG-cards-border-color-hover: var(--anime-accent); /* Neon border on hover */
 
-    --FG-cards-username-normal: var(--header-primary);
-    --FG-cards-username-hover: var(--header-primary);
-    --FG-cards-discriminator-normal: var(--header-secondary);
-    --FG-cards-discriminator-hover: var(--header-secondary);
-    --FG-cards-status-normal: var(--header-secondary);
-    --FG-cards-status-hover: var(--header-secondary);
+    --FG-cards-username-normal: #ffffff;
+    --FG-cards-username-hover: #ffffff;
+    --FG-cards-discriminator-normal: #cccccc;
+    --FG-cards-discriminator-hover: var(--anime-secondary-accent); /* Vibrant discriminator */
+    --FG-cards-status-normal: #aaaaaa;
+    --FG-cards-status-hover: var(--anime-secondary-accent);
 
-    --FG-cards-button-icon-normal: var(--interactive-active);
-    --FG-cards-button-icon-hover: var(--activity-card-background);
-    --FG-cards-button-background-normal: rgba(0, 0, 0, 0.3);
-    --FG-cards-button-background-hover: rgba(0, 0, 0, 0.6);
+    --FG-cards-button-icon-normal: #ffffff;
+    --FG-cards-button-icon-hover: #1e1e1e;
+    --FG-cards-button-background-normal: rgba(255, 255, 255, 0.2);
+    --FG-cards-button-background-hover: var(--anime-accent); /* Neon Button */
 }
 
 /* ╔══════════════════════════╦═════════════════════════════════════════════════════════════════════════════[─]═[□]═[×]═╗ */
-/* ║ Light                    ║ Here you can make settings for the Light Theme.                                         ║ */
+/* ║ Light - Vibrant/Anime    ║ Light Theme adjustments for a vibrant, anime aesthetic.                                       ║ */
 /* ╚══════════════════════════╩═════════════════════════════════════════════════════════════════════════════════════════╝ */
 
 .theme-light {
-    --FG-search-background: var(--background-tertiary);
+    --FG-search-background: rgba(255, 255, 255, 0.7);
 
-    --FG-cards-background-normal: var(--background-secondary);
-    --FG-cards-background-hover: var(--activity-card-background);
+    --FG-cards-background-normal: rgba(255, 255, 255, var(--anime-card-bg-opacity));
+    --FG-cards-background-hover: #f0f0f0;
 
-    --FG-cards-background-active: var(--activity-card-background);
+    --FG-cards-background-active: var(--FG-cards-background-hover);
 
-    --FG-cards-border-color-normal: var(--background-modifier-accent);
-    --FG-cards-border-color-hover: var(--background-modifier-accent);
+    --FG-cards-border-color-normal: rgba(0, 0, 0, 0.1);
+    --FG-cards-border-color-hover: var(--anime-accent);
 
-    --FG-cards-username-normal: var(--header-primary);
-    --FG-cards-username-hover: var(--header-primary);
-    --FG-cards-discriminator-normal: var(--header-secondary);
-    --FG-cards-discriminator-hover: var(--header-secondary);
-    --FG-cards-status-normal: var(--header-secondary);
-    --FG-cards-status-hover: var(--header-secondary);
+    --FG-cards-username-normal: #000000;
+    --FG-cards-username-hover: #000000;
+    --FG-cards-discriminator-normal: #555555;
+    --FG-cards-discriminator-hover: var(--anime-accent);
+    --FG-cards-status-normal: #555555;
+    --FG-cards-status-hover: var(--anime-accent);
 
-    --FG-cards-button-icon-normal: var(--interactive-active);
-    --FG-cards-button-icon-hover: var(--activity-card-background);
-    --FG-cards-button-background-normal: rgba(255, 255, 255, 0.3);
-    --FG-cards-button-background-hover: rgba(255, 255, 255, 0.6);
+    --FG-cards-button-icon-normal: #000000;
+    --FG-cards-button-icon-hover: #ffffff;
+    --FG-cards-button-background-normal: rgba(0, 0, 0, 0.2);
+    --FG-cards-button-background-hover: var(--anime-accent);
 }
 
 
@@ -127,8 +133,9 @@
     z-index: 9;
     margin: 0px;
     width: 100%;
-    border-radius: var(--FG-search-radius);
+    border-radius: var(--FG-search-radius); /* Rounded Search Bar */
     padding: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle Shadow */
 }
 
 .peopleColumn__133bf .peopleList__5ec2f > div {
@@ -158,6 +165,7 @@
     overflow: hidden scroll
 }
 
+/* Scrollbar Styles (Preserved) */
 .peopleColumn__133bf::-webkit-scrollbar {
     width: 16px;
     height: 16px
@@ -255,10 +263,14 @@
     }
 }
 
+/* === VIBRANT AVATAR STYLES === */
 .peopleColumn__133bf .avatar__0a06e.wrapper-1VLyxH {
     transform: scale(1.8);
     margin-left: calc(16px + var(--FG-avatar-margin-left));
-    margin-top: calc(var(--FG-avatar-margin-top) + var(--FG-cards-banner-height))
+    margin-top: calc(var(--FG-avatar-margin-top) + var(--FG-cards-banner-height));
+    /* Added subtle box shadow to the avatar for depth */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .avatar__0a06e::before {
@@ -267,80 +279,81 @@
     width: 116%;
     height: 116%;
     left: -8%;
-    top: -8%
+    top: -8%;
+    /* Subtle inset border using accent color */
+    box-shadow: inset 0 0 0 3px var(--anime-accent), 0 0 0 2px var(--FG-cards-background-normal);
 }
 
 .peopleColumn__133bf .avatar__0a06e::before {
     background: var(--FG-cards-background-normal);
     border-radius: var(--rs-avatar-shape, var(--FG-avatar-shape));
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179:hover .avatar__0a06e::before {
     background: var(--FG-cards-background-hover);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179.active_cc6179 .avatar__0a06e::before {
     opacity: var(--FG-cards-avatar-opacity-active) !important;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .avatar__0a06e.wrapper-1VLyxH {
     opacity: var(--FG-cards-avatar-opacity-normal);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179:hover .avatar__0a06e.wrapper-1VLyxH {
+    /* Slight lift and scale up on hover */
+    transform: scale(calc(1.8 * var(--FG-cards-avatar-opacity-hover))) translateY(-5px);
     opacity: var(--FG-cards-avatar-opacity-hover);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleListItem_cc6179.active_cc6179 .avatar__0a06e.wrapper-1VLyxH {
     opacity: var(--FG-cards-avatar-opacity-active) !important;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
+/* === VIBRANT BANNER STYLES === */
 .peopleColumn__133bf .userInfo__0a06e::before {
     content: "";
     position: absolute;
     width: 100%;
-    height: calc(60px + var(--FG-cards-banner-height));
+    height: var(--FG-cards-banner-height); /* Use new height */
     min-height: 60px;
-    background-image: var(--user-banner);
+    /* Use the gradient defined in :root */
+    background-image: var(--FG-cards-banner-background);
     background-position: center;
     background-color: var(--user-accent-color);
-    background-size: cover
+    background-size: cover;
+    /* Apply rounded top corners */
+    border-radius: var(--FG-cards-radius) var(--FG-cards-radius) 10px 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow */
 }
 
 .peopleColumn__133bf .userInfo__0a06e::before {
     opacity: var(--FG-cards-banner-opacity-normal);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179:hover .userInfo__0a06e::before {
     opacity: var(--FG-cards-banner-opacity-hover);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179.active_cc6179 .userInfo__0a06e::before {
     opacity: var(--FG-cards-banner-opacity-active);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
-.peopleColumn__133bf#online-tab .actions_fc004c {
-    position: relative;
-    transform: scale(0.72);
-    margin-left: 2px !important;
-    bottom: 95%;
-    margin-right: -2px;
-    height: 0px;
-    min-height: 0px;
-    max-height: 0px;
-    margin-top: unset
-}
-
-.peopleColumn__133bf#all-tab .actions_fc004c {
+/* Action Button Position Fixes (Preserved) */
+.peopleColumn__133bf#online-tab .actions_fc004c,
+.peopleColumn__133bf#all-tab .actions_fc004c,
+.peopleColumn__133bf#favorized_friends-tab .actions_fc004c,
+.peopleColumn__133bf#hidden_friends-tab .actions_fc004c {
     position: relative;
     transform: scale(0.72);
     margin-left: 2px !important;
@@ -376,176 +389,64 @@
     margin-top: 10px
 }
 
-.peopleColumn__133bf#favorized_friends-tab .actions_fc004c {
-    position: relative;
-    transform: scale(0.72);
-    margin-left: 2px !important;
-    bottom: 95%;
-    margin-right: -2px;
-    height: 0px;
-    min-height: 0px;
-    max-height: 0px;
-    margin-top: unset
+/* === VIBRANT CIRCULAR BUTTONS === */
+.actionButton_f8fa06 {
+    border-radius: 50%; /* Fully circular buttons */
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 9px
 }
 
-.peopleColumn__133bf#hidden_friends-tab .actions_fc004c {
-    position: relative;
-    transform: scale(0.72);
-    margin-left: 2px !important;
-    bottom: 95%;
-    margin-right: -2px;
-    height: 0px;
-    min-height: 0px;
-    max-height: 0px;
-    margin-top: unset
-}
-
-.peopleColumn__133bf#online-tab .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-normal);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-normal);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#all-tab .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-normal);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-normal);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#pending-tab .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-normal);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-normal);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#blocked-tab .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-normal);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-normal);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#favorized_friends-tab .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-normal);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-normal);
-    transition: var(--FG-transition)
-}
-
+.peopleColumn__133bf#online-tab .actionButton_f8fa06,
+.peopleColumn__133bf#all-tab .actionButton_f8fa06,
+.peopleColumn__133bf#pending-tab .actionButton_f8fa06,
+.peopleColumn__133bf#blocked-tab .actionButton_f8fa06,
+.peopleColumn__133bf#favorized_friends-tab .actionButton_f8fa06,
 .peopleColumn__133bf#hidden_friends-tab .actionButton_f8fa06 {
     background: var(--FG-cards-button-background-normal);
     color: var(--FG-cards-button-icon-normal);
     opacity: var(--FG-cards-button-opacity-normal);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
-.peopleColumn__133bf#online-tab .peopleListItem_cc6179:hover .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-hover);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-hover);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#all-tab .peopleListItem_cc6179:hover .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-hover);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-hover);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#pending-tab .peopleListItem_cc6179:hover .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-hover);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-hover);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#blocked-tab .peopleListItem_cc6179:hover .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-hover);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-hover);
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#favorized_friends-tab .peopleListItem_cc6179:hover .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-hover);
-    color: var(--FG-cards-button-icon-normal);
-    opacity: var(--FG-cards-button-opacity-hover);
-    transition: var(--FG-transition)
-}
-
+.peopleColumn__133bf#online-tab .peopleListItem_cc6179:hover .actionButton_f8fa06,
+.peopleColumn__133bf#all-tab .peopleListItem_cc6179:hover .actionButton_f8fa06,
+.peopleColumn__133bf#pending-tab .peopleListItem_cc6179:hover .actionButton_f8fa06,
+.peopleColumn__133bf#blocked-tab .peopleListItem_cc6179:hover .actionButton_f8fa06,
+.peopleColumn__133bf#favorized_friends-tab .peopleListItem_cc6179:hover .actionButton_f8fa06,
 .peopleColumn__133bf#hidden_friends-tab .peopleListItem_cc6179:hover .actionButton_f8fa06 {
-    background: var(--FG-cards-button-background-hover);
-    color: var(--FG-cards-button-icon-normal);
+    background: var(--FG-cards-button-background-hover); /* Vibrant Accent Background */
+    color: var(--FG-cards-button-icon-hover);
     opacity: var(--FG-cards-button-opacity-hover);
-    transition: var(--FG-transition)
+    box-shadow: 0 0 15px var(--anime-accent); /* Vivid Glow */
+    transform: scale(1.1); /* Pop effect */
+    transition: var(--FG-transition);
 }
 
-.peopleColumn__133bf#online-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06 {
-    opacity: var(--FG-cards-button-opacity-active) !important;
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#all-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06 {
-    opacity: var(--FG-cards-button-opacity-active) !important;
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#pending-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06 {
-    opacity: var(--FG-cards-button-opacity-active) !important;
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#blocked-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06 {
-    opacity: var(--FG-cards-button-opacity-active) !important;
-    transition: var(--FG-transition)
-}
-
-.peopleColumn__133bf#favorized_friends-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06 {
-    opacity: var(--FG-cards-button-opacity-active) !important;
-    transition: var(--FG-transition)
-}
-
+/* Active and Hover States (Preserved/Updated) */
+.peopleColumn__133bf#online-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06,
+.peopleColumn__133bf#all-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06,
+.peopleColumn__133bf#pending-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06,
+.peopleColumn__133bf#blocked-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06,
+.peopleColumn__133bf#favorized_friends-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06,
 .peopleColumn__133bf#hidden_friends-tab .peopleListItem_cc6179.active_cc6179 .actionButton_f8fa06 {
     opacity: var(--FG-cards-button-opacity-active) !important;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
-.peopleColumn__133bf#online-tab .actionButton_f8fa06:hover {
-    background: var(--FG-cards-button-icon-hover) !important;
-    color: var(--FG-cards-button-icon-hover)
-}
-
-.peopleColumn__133bf#all-tab .actionButton_f8fa06:hover {
-    background: var(--FG-cards-button-icon-hover) !important;
-    color: var(--FG-cards-button-icon-hover)
-}
-
-.peopleColumn__133bf#pending-tab .actionButton_f8fa06:hover {
-    background: var(--FG-cards-button-icon-hover) !important;
-    color: var(--FG-cards-button-icon-hover)
-}
-
-.peopleColumn__133bf#blocked-tab .actionButton_f8fa06:hover {
-    background: var(--FG-cards-button-icon-hover) !important;
-    color: var(--FG-cards-button-icon-hover)
-}
-
-.peopleColumn__133bf#favorized_friends-tab .actionButton_f8fa06:hover {
-    background: var(--FG-cards-button-icon-hover) !important;
-    color: var(--FG-cards-button-icon-hover)
-}
-
+.peopleColumn__133bf#online-tab .actionButton_f8fa06:hover,
+.peopleColumn__133bf#all-tab .actionButton_f8fa06:hover,
+.peopleColumn__133bf#pending-tab .actionButton_f8fa06:hover,
+.peopleColumn__133bf#blocked-tab .actionButton_f8fa06:hover,
+.peopleColumn__133bf#favorized_friends-tab .actionButton_f8fa06:hover,
 .peopleColumn__133bf#hidden_friends-tab .actionButton_f8fa06:hover {
     background: var(--FG-cards-button-icon-hover) !important;
-    color: var(--FG-cards-button-icon-hover)
-}
-
-.actionButton_f8fa06 {
-    margin-left: 9px
+    color: var(--FG-cards-button-icon-hover);
 }
 
 .peopleColumn__133bf#blocked-tab .actionDeny_f8fa06 {
@@ -569,6 +470,7 @@
     align-items: flex-end
 }
 
+/* === MAIN CARD STYLES (Lift and Glow) === */
 .peopleColumn__133bf .peopleListItem_cc6179 {
     background: var(--FG-cards-background-normal);
     border: var(--FG-cards-border-width) solid var(--FG-cards-border-color-normal);
@@ -576,18 +478,23 @@
     height: 100% !important;
     margin: 0px;
     padding: 0px;
-    min-height: calc(var(--FG-cards-height) + var(--FG-cards-banner-height)) !important
+    min-height: calc(var(--FG-cards-height) + var(--FG-cards-banner-height)) !important;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); /* Subtle base shadow */
+    transition: var(--FG-transition);
+    overflow: hidden; /* Ensure content stays inside rounded corners */
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179:hover {
     background: var(--FG-cards-background-hover);
     border: var(--FG-cards-border-width) solid var(--FG-cards-border-color-hover);
-    transition: var(--FG-transition)
+    box-shadow: var(--anime-shadow); /* Vibrant, Anime Shadow */
+    transform: translateY(-5px); /* Lift effect */
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179.active_cc6179 {
     background: var(--FG-cards-background-active) !important;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .userInfo__0a06e {
@@ -605,10 +512,11 @@
     position: absolute;
     width: 80% !important;
     left: 0;
-    bottom: 0;
+    bottom: 10px; /* Adjusted bottom for better look */
     font-size: 20px;
     line-height: 22px;
-    font-weight: 600
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for clarity */
 }
 
 .peopleColumn__133bf#pending-tab .text__0a06e {
@@ -628,18 +536,18 @@
 .peopleColumn__133bf .username__0a06e {
     color: var(--FG-cards-username-normal);
     opacity: var(--FG-cards-username-opacity-normal);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179:hover .username__0a06e {
     color: var(--FG-cards-username-hover);
     opacity: var(--FG-cards-username-opacity-hover);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleListItem_cc6179.active_cc6179 .username__0a06e {
     opacity: var(--FG-cards-username-opacity-active) !important;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .discriminator__0a06e {
@@ -649,33 +557,33 @@
     margin-left: 2px;
     font-size: 20px;
     line-height: 22px;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179:hover .discriminator__0a06e {
     color: var(--FG-cards-discriminator-hover);
     opacity: var(--FG-cards-discriminator-opacity-hover);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleListItem_cc6179.active_cc6179 .discriminator__0a06e {
     opacity: var(--FG-cards-discriminator-opacity-active) !important;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .subtext__0a06e {
     color: var(--FG-cards-status-normal);
     opacity: var(--FG-cards-status-opacity-normal);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleColumn__133bf .peopleListItem_cc6179:hover .subtext__0a06e {
     color: var(--FG-cards-status-hover);
     opacity: var(--FG-cards-status-opacity-hover);
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
 
 .peopleListItem_cc6179.active_cc6179 .subtext__0a06e {
     opacity: var(--FG-cards-status-opacity-active) !important;
-    transition: var(--FG-transition)
+    transition: var(--FG-transition);
 }
