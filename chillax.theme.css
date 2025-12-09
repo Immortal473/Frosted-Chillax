@@ -80,10 +80,10 @@ div[class^=micButtonParent__] {
 /*roots*/ /*both dark and light*/
 :root {
     --user-name: "Master";
-    --edited-message: "✏️";
-    --font-name: Fascinate Inlin;
-    --font-size: 17px;
-    --group-chat-font: "Fascinate Inlin"; /* change this to change the group chat's default font */
+    --edited-message: "  ";
+    --font-name: Poppins;
+    --font-size: 13px;
+    --group-chat-font: "Monoton"; /* change this to change the group chat's default font */
 
 
        /*glow radial status*/ /*must end in px*/
