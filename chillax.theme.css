@@ -101,8 +101,8 @@
     --anime-glow: 0 0 50px var(--anime-neon-pink), 0 0 25px var(--anime-neon-blue);
 
  
-    --floating-bg-dark: rgba(15, 15, 15, 0); 
-    --floating-bg-light: rgba(255, 255, 255, 0);
+    --floating-bg-dark: var(--wallpaper); 
+    --floating-bg-light: var(--wallpaper);
     --glass-blur: 12px;
     --main-border-radius: 25px; /* For large elements (e.g., chat input) */
     --accentcolor: 0, 255, 0; /* Vivid Green RGB */
