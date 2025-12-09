@@ -2933,117 +2933,252 @@ html.theme-light .modeSelected__2ea32 .name__2ea32 {
 
 
 
-/* === FROSTED GLASS & FLOATING ADDON === */
+/*
+ * Vencord Theme: Frosted Glass, Floating, Rounded with RGB Border
+ * Based on user requests and the chillax.css structure.
+ */
 
-/* --- Variables for Consistency --- */
-/* (Ensure these match the variables you set in the main theme for the effect) */
+/****GOOGLE/BD FONTS****/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://nfld99.github.io/Better-Discord/Source_Code/Addons/Use_Fonts/DiscordFont.css");
+/* Add more imports from original chillax.css here if desired */
+
+/* === CORE VARIABLES === */
 :root {
-    --floating-bg-dark: rgba(0, 0, 0, 0.4);
-    --floating-bg-light: rgba(255, 255, 255, 0.6);
-    --glass-blur: 10px;
-    --float-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    --float-radius: 15px;
+    /* *** RGB BORDER ANIMATION *** */
+    --rgb-border-width: 3px;
+    --rgb-border-radius: 18px; /* Slightly larger than float-radius for border to show */
+    --rgb-gradient: linear-gradient(
+        45deg,
+        #ff0000, /* Red */
+        #ff7f00, /* Orange */
+        #ffff00, /* Yellow */
+        #00ff00, /* Green */
+        #0000ff, /* Blue */
+        #4b0082, /* Indigo */
+        #9400d3 /* Violet */
+    );
+    --rgb-animation-duration: 8s;
+
+    /* *** FLOATING & FROSTED GLASS STYLES *** */
+    --floating-bg-dark: rgba(15, 15, 15, 0.45); /* Darker semi-transparent background */
+    --floating-bg-light: rgba(255, 255, 255, 0.65); /* Lighter semi-transparent background */
+    --glass-blur: 12px; /* Increased blur amount */
+    --float-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5); /* Stronger floating shadow */
+    --float-margin: 12px; /* Increased space between floating elements */
+    --float-radius: 15px; /* Consistent rounded corners for content */
+
+    /* *** VIBRANT GREEN ACCENT COLORS *** */
+    --accentcolor: 0, 255, 0; /* RGB for use in rgba() (Vibrant Green) */
+    --accentcolorV2: #39ff14; /* Neon/Vibrant Green Hex */
+    --brand-experiment: var(--accentcolorV2);
+    --brand-experiment-hover: #00cc00;
+    --green-accent-vibrant: #39ff14;
+    --chillax-scroller-color: var(--accentcolorV2);
+    
+    /* Ensure internal component backgrounds are transparent by default */
+    --background-primary: transparent;
+    --background-secondary: transparent;
+    --background-tertiary: transparent;
+    --channeltextarea-background: transparent;
+    --background-message-hover: transparent;
+    --background-modifier-hover: transparent;
+    --background-modifier-selected: transparent;
 }
 
 
-/* --- 1. All Modals (User Settings, Server Creation, Login, etc.) --- */
+/* === RGB BORDER ANIMATION KEYFRAMES === */
+@keyframes glowing-border {
+    to {
+        background-position: 200% center;
+    }
+}
 
-.rootWithLayer_c85257, /* The full layer containing all modals */
-.root_d18080, /* Base for most modals */
-.layer_ec1966, /* Base for user settings */
-.contentRegion_f932e6, /* Settings content area */
-.sidebarRegion__597c4, /* Settings sidebar */
-.footer_f932e6 /* Settings footer */
-{
+/* === FLOATING, FROSTED GLASS, & RGB BORDER APPLIANCE === */
+
+/* Base application frame padding to allow sections to float and show background */
+.app_a0977a {
+    background-color: transparent !important;
+}
+.base__3e6df {
+    padding: var(--float-margin); /* Padding around the entire window */
+}
+
+
+/* Universal Class for all Floating/Frosted Containers */
+.frosted-floating-container {
     background-color: var(--floating-bg-dark) !important;
     backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: var(--float-radius) !important;
-    box-shadow: var(--float-shadow) !important;
-    
-    /* Ensure no double backgrounds inside modals */
-    & * {
-        background-color: transparent !important;
-    }
-    
-    /* Light theme support */
-    .theme-light & { 
-        background-color: var(--floating-bg-light) !important;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
-    }
+    border-radius: var(--rgb-border-radius);
+    box-shadow: var(--float-shadow);
+    margin: var(--float-margin) 0; /* Vertical separation */
+    position: relative;
+    overflow: hidden; /* To keep border inside */
 }
 
-/* Fix for inner content areas in settings/modals to be transparent */
-.content__0c295, .scroller__83603, .sidebar_d34a47 {
-    background: transparent !important;
+/* RGB Border Mixin using a pseudo-element */
+.frosted-floating-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: var(--rgb-border-radius);
+    padding: var(--rgb-border-width);
+    background: var(--rgb-gradient);
+    background-size: 200% auto;
+    animation: glowing-border var(--rgb-animation-duration) linear infinite;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1; /* Place border behind content */
+}
+
+/* Light Theme Adjustments */
+html.theme-light .frosted-floating-container {
+    background-color: var(--floating-bg-light) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+html.theme-light .frosted-floating-container::before {
+    /* Slightly less intense shadow for light theme */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 
-/* --- 2. Popouts, Context Menus, & Dropdowns --- */
+/* --- APPLY CLASSES TO DISCORD UI SECTIONS --- */
 
+/* 1. Server List */
+.wrapper_ef3116 {
+    margin-right: var(--float-margin); /* Separate from channels */
+    .frosted-floating-container;
+}
+
+/* 2. Channel List / DM List */
+.container__2637a, .privateChannels_e6b769 {
+    margin-right: var(--float-margin); /* Separate from chat */
+    .frosted-floating-container;
+}
+.sidebar_e03107 {
+    /* Container for channels/DMs and user panel, must be transparent */
+    background-color: transparent !important;
+    padding-bottom: var(--float-margin); /* Space for user panel below */
+}
+
+/* 3. User Panel Area (Bottom Left) */
+.panels__5e434 {
+    margin-top: var(--float-margin); /* Separate from channels/DMs above */
+    .frosted-floating-container;
+    /* Fix: remove background from inner span to fix Spotify controls */
+    & span { background: transparent !important; }
+}
+
+/* 4. Main Chat Area Wrapper */
+.chat_f75fb0 {
+    background-color: transparent !important;
+    padding: 0; /* Container padding is handled by .base__3e6df */
+    display: flex;
+    flex-direction: column;
+}
+
+/* 5. Chat Content / Message History Box */
+.chatContent_f75fb0 {
+    flex-grow: 1; /* Take up remaining vertical space */
+    .frosted-floating-container;
+    padding: 10px;
+    margin-bottom: var(--float-margin); /* Separate from input box below */
+}
+
+/* 6. Chat Input Box (Message Bar) */
+.channelTextArea_f75fb0 {
+    .frosted-floating-container;
+    /* Remove padding to make it flush with the chat area container */
+    padding: 0 !important;
+}
+
+/* 7. Member List */
+.container_c8ffbb {
+    margin-left: var(--float-margin); /* Separate from chat */
+    .frosted-floating-container;
+    padding: 5px;
+}
+
+/* 8. Modals (Settings, Popouts, Context Menus) */
+.rootWithLayer_c85257, /* Settings/Modal backdrop container */
+.root_d18080, /* Base for most modals */
+.layer_ec1966, /* Base for user settings */
 .menu_d96c9f, /* Context Menus (right-click) */
 .popout__52a80, /* General Popouts (e.g., status selector) */
 .root__8d3c1, /* Newer Popouts (e.g., thread/channel settings) */
 .userPopout-2j1gM4 /* User Popout/Profile Card */
- {
-    background-color: var(--floating-bg-dark) !important;
-    backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: var(--float-radius) !important;
-    box-shadow: var(--float-shadow) !important;
-    padding: 5px;
-
-    /* Light theme support */
-    .theme-light & {
-        background-color: var(--floating-bg-light) !important;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+{
+    /* Use the same class for consistent floating/glass/rgb look */
+    .frosted-floating-container;
+    
+    /* Adjustments for popouts/menus */
+    margin: 0 !important;
+    border-radius: var(--float-radius) !important; /* Smaller radius for menus/popouts */
+    
+    /* Ensure no double backgrounds inside modals/menus */
+    & *, .scroller_d96c9f, .scroller__79d02 {
+        background-color: transparent !important;
     }
 }
 
-/* Make inner parts of menus transparent to see frosted background */
-.scroller_d96c9f, .scroller__79d02 {
+/* Specific Fixes for Settings */
+.contentRegion_f932e6,
+.sidebarRegion__597c4,
+.footer_f932e6 {
+    /* Ensure settings sub-sections are transparent */
+    background-color: transparent !important;
+}
+
+/* --- VIBRANT GREEN ACCENT STYLING --- */
+
+/* Mention Background */
+html.theme-dark .mentioned__5126c:before {
+    background: linear-gradient(135deg, #3b3b3b, var(--accentcolorV2)) !important;
+}
+
+/* Ping/Notification Badge */
+.numberBadge__2b1f5 {
+    background-color: var(--accentcolorV2) !important;
+    box-shadow: 0 0 10px 2px var(--green-accent-vibrant);
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+    background: var(--chillax-scroller-color) !important;
+}
+
+/* Better Mark As Read button */
+.newMessagesBar__0f481.barBase__0f481,
+[class*="jumpToPresentBar"] > button:last-child {
+    background-color: var(--accentcolorV2) !important;
+    box-shadow: 0 0 15px var(--green-accent-vibrant);
+}
+
+/* Connected VC Buttons Background */
+.wrapper__1405b,
+.centerButton_f1ceac.colorable_f1ceac {
+    background-color: var(--accentcolorV2) !important;
+}
+
+/* === ORIGINAL CHILLAX.CSS TRANSPARENCY FIXES (Included for compatibility) === */
+
+/* Fix for background in VC/Call panels */
+.container__7d20c, .callContainer_b8f36c {
     background: transparent !important;
 }
 
-/* --- 3. Friends List / DM List Container --- */
-/* Floating the entire left content pane */
-.privateChannels_e6b769 {
-    background-color: var(--floating-bg-dark) !important;
-    backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: var(--float-radius) !important;
-    box-shadow: var(--float-shadow) !important;
-    margin-right: 10px; /* Floating space */
-    
-    .theme-light & {
-        background-color: var(--floating-bg-light) !important;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
-    }
+/* Fix for Friend Tab transparency */
+.container__133bf, .tabBody__133bf, .nowPlayingColumn__133bf {
+    background: transparent !important;
 }
 
-/* --- 4. Tooltips (Small hover boxes) --- */
-.tooltip_d21c70 {
-    background-color: var(--floating-bg-dark) !important;
-    backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: 8px !important;
-    box-shadow: var(--float-shadow) !important;
-    
-    /* Light theme support */
-    .theme-light & { 
-        background-color: var(--floating-bg-light) !important;
-    }
+/* Transparency fix for discord store, shop, collections, etc */
+.page__1feb0, .shopScroll__08415, .shopScroll__1feb0, .filterBar__11877 {
+    background: transparent !important;
 }
 
-/* Fix for tooltip arrow to prevent an opaque block */
-.tooltipPointer_c69f0b {
-    border-color: transparent !important;
-}
-
-/* --- 5. Fix for call/screenshare panels (floating appearance) --- */
-.callContainer_b8f36c {
-    background-color: var(--floating-bg-dark) !important;
-    backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: var(--float-radius) !important;
-    box-shadow: var(--float-shadow) !important;
-    
-    .theme-light & { 
-        background-color: var(--floating-bg-light) !important;
-    }
+/* Transparency fix for 'chatGradient' area newly introduced by Discord */
+.chatGradient__36d {
+    background: transparent !important;
 }
