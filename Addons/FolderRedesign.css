@@ -6,7 +6,8 @@
     transform: none !important;
 }
 
-.folderPreviewWrapper__48112:not([style=""]):before, .folderPreviewWrapper__48112:not([style=""]):after {
+/* Base style for the folder icon when it contains unread messages */
+.folderPreviewWrapper__48112:not([style=""]):before {
     position: absolute;
     content: "";
     width: 24px;
@@ -14,12 +15,35 @@
     inset: 0;
     margin: auto;
     background-color: inherit;
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M20 7H12L10.553 5.106C10.214 4.428 9.521 4 8.764 4H3C2.447 4 2 4.447 2 5V19C2 20.104 2.895 21 4 21H20C21.104 21 22 20.104 22 19V9C22 7.896 21.104 7 20 7Z'/%3E%3C/svg%3E");
+    /* Custom SVG for a 'cool' effect - Currently a stylized star/spark, replace with your favorite icon! */
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M12 2L9.24 8.78L2 9.54L7.5 14.07L5.88 21L12 17.5L18.12 21L16.5 14.07L22 9.54L14.76 8.78L12 2Z'/%3E%3C/svg%3E");
     -webkit-mask-repeat: no-repeat;
-    filter: brightness(1.2) saturate(1.1);
-    bottom: -45px;
+    -webkit-mask-size: contain;
+    
+    /* VIBRANT GLOW EFFECT */
+    filter: drop-shadow(0 0 5px currentColor) brightness(1.5) saturate(2);
+    
+    /* Center the icon (Discord moved the default icon down by -45px in your original CSS) */
+    bottom: 0px; 
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/*.theme-light .folderPreviewWrapper__48112 {*/
-/*    filter: brightness(0.5) saturate(3);*/
-/*}*/
+/* Remove the old :after element to avoid double icons */
+.folderPreviewWrapper__48112:not([style=""]):after {
+    content: none;
+}
+
+/* Hover effect: Makes the icon larger and brighter */
+.folderPreviewWrapper__48112:not([style=""]):hover:before {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px currentColor) brightness(2.0) saturate(3);
+}
+
+/* Optional: Slightly dim the icon in light theme for better contrast with light backgrounds */
+.theme-light .folderPreviewWrapper__48112:not([style=""]):before {
+    filter: drop-shadow(0 0 5px currentColor) brightness(1.0) saturate(1.5);
+}
+
+.theme-light .folderPreviewWrapper__48112:not([style=""]):hover:before {
+    filter: drop-shadow(0 0 8px currentColor) brightness(1.5) saturate(2.5);
+}
