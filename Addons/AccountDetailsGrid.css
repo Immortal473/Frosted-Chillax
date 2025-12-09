@@ -1,3 +1,11 @@
+/* Ensure these variables are defined in your theme's root */
+/*
+:root {
+    --anime-neon-pink: #ff00ff; 
+    --anime-neon-blue: #00ffff;
+}
+*/
+
 .background__1fed1 {
     background-color: transparent;
     padding: 0;
@@ -7,13 +15,21 @@
     background-color: transparent;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5px;
+    grid-gap: 15px; /* Increased gap for visual separation */
 }
 
 .field__1fed1 {
     width: 100%;
-    border-radius: 8px;
+    /* ANIME CURVE */
+    border-radius: 20px; 
+    
     background-color: var(--background-primary);
+    
+    /* ANIME POP EFFECT */
+    border: 2px solid transparent; 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* Bouncy transition */
+    
     max-height: unset;
     flex-direction: column;
     display: flex;
@@ -24,15 +40,31 @@
     margin-bottom: 0;
 }
 
+/* ANIME GLOW ON HOVER/FOCUS */
+.field__1fed1:hover, .field__1fed1:focus-within {
+    border: 2px solid var(--anime-neon-blue);
+    box-shadow: 0 0 20px var(--anime-neon-blue), 0 0 5px var(--anime-neon-pink);
+    transform: translateY(-4px); /* Lift up slightly */
+}
+
+/* Button Styling for Anime Look */
 .field__1fed1 .fieldButton__1fed1 {
-    background-color: var(--button-secondary-background);
-    border-radius: 6px;
-    -webkit-transition: background-color .17s ease, color .17s ease;
-    transition: background-color .17s ease, color .17s ease;
+    /* Use a gradient for extra color/fun */
+    background: linear-gradient(90deg, var(--anime-neon-blue) 0%, var(--anime-neon-pink) 100%) !important;
+    color: white !important; /* Ensure text is visible on the colorful button */
+
+    /* ANIME CURVE */
+    border-radius: 12px;
+    
+    -webkit-transition: all .2s ease;
+    transition: all .2s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .field__1fed1 .fieldButton__1fed1:hover {
-    background-color: var(--button-secondary-background-hover);
+    /* Enhanced hover effect: stronger glow and pop */
+    box-shadow: 0 0 15px var(--anime-neon-pink), 0 0 5px var(--anime-neon-blue);
+    transform: scale(1.03);
 }
 
 .field__1fed1 .fieldButton__1fed1:hover > div {
@@ -49,6 +81,7 @@
     gap: 5px;
 }
 
+/* ANIME SCROLLBARS: Neon Colors */
 .field__1fed1::-webkit-scrollbar {
     width: 16px;
     height: 16px;
@@ -59,12 +92,14 @@
 }
 
 .field__1fed1::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-auto-thumb);
+    /* Vibrant Neon Blue Thumb */
+    background-color: var(--anime-neon-blue) !important;
     min-height: 40px;
 }
 
 .field__1fed1::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-auto-track);
+    /* Vibrant Neon Pink Track */
+    background-color: rgba(255, 0, 255, 0.1) !important;
 }
 
 .field__1fed1::-webkit-scrollbar-thumb,
