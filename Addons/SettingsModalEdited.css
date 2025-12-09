@@ -1,18 +1,26 @@
-/* === REQUIRED CORE VARIABLES (Ensure these are defined in your theme) === */
+/* === REQUIRED CORE VARIABLES (Anime Edition) === */
 :root {
-    --main-border-radius: 25px; /* Fully Rounded Corners */
-    --floating-bg-dark: rgba(15, 15, 15, 0.45); /* Frosted Glass Dark Background */
-    --floating-bg-light: rgba(255, 255, 255, 0.65); /* Frosted Glass Light Background */
-    --glass-blur: 12px; /* Frosted Glass Effect strength */
+    --anime-neon-pink: #ff00ff; /* Vibrant Pink/Magenta */
+    --anime-neon-blue: #00ffff; /* Vibrant Cyan/Aqua */
+    --anime-glow: 0 0 50px var(--anime-neon-pink), 0 0 25px var(--anime-neon-blue);
+    
+    --main-border-radius: 65px; /* Extremely Curved */
+    --floating-bg-dark: rgba(20, 0, 30, 0.65); /* Darker, slightly purple-tinted base */
+    --floating-bg-light: rgba(255, 255, 255, 0.75); 
+    --glass-blur: 15px; /* More blur */
 }
 
 /* Base Modal Container (Settings, Popups) */
 .modal-frosted {
     /* FROSTED GLASS EFFECT */
     backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: var(--main-border-radius) !important; /* Rounded */
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important; /* Nicer, deep shadow */
-    border: none !important;
+    border-radius: var(--main-border-radius) !important; /* Huge Curve */
+    
+    /* VIBRANT ANIME GLOW AND THICK BORDER */
+    box-shadow: var(--anime-glow), 0 15px 60px rgba(0, 0, 0, 0.7) !important; 
+    border: 3px solid var(--anime-neon-blue) !important; 
+    
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); /* Bouncy transition */
 }
 
 /* --- Core Styles (Preserved Positioning) --- */
@@ -126,15 +134,65 @@ html.theme-light #app-mount .root__5c9fc {
 }
 
 /* Make Sidebar and Content transparent to see the frosted glass background */
-.theme-dark .sidebarRegion__23e6b,
-.theme-light .sidebarRegion__23e6b {
-    background: transparent !important;
+.theme-dark .sidebarRegion__23e6b {
+    /* Give the sidebar a soft, translucent background to blend with the main modal */
+    background: rgba(0, 0, 0, 0.2) !important; 
+    border-radius: 0 0 var(--main-border-radius) 0; /* Match modal curve */
 }
+.theme-light .sidebarRegion__23e6b {
+    background: rgba(255, 255, 255, 0.4) !important;
+    border-radius: 0 0 var(--main-border-radius) 0;
+}
+
 
 .contentRegion__23e6b {
     background: transparent !important;
     zoom: 0.9 !important;
 }
+
+/* === ANIME SIDEBAR TAB STYLING === */
+
+/* Settings title for vibrancy */
+.sidebar__23e6b .title_aa8da2, .sidebar__23e6b .description_aa8da2 {
+    color: var(--anime-neon-blue) !important;
+    text-shadow: 0 0 5px var(--anime-neon-blue);
+    transition: all 0.2s;
+}
+
+/* Individual Tab/Item */
+.side_aa8da2 .item_aa8da2 {
+    border-radius: 15px !important; /* Highly rounded tab pill shape */
+    margin: 5px 0 !important;
+    padding: 10px 10px !important;
+    background: rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-weight: 500;
+}
+
+/* Hover Effect: Pop and glow */
+.side_aa8da2 .item_aa8da2:hover {
+    background: var(--anime-neon-pink) !important;
+    color: white !important;
+    transform: translateX(5px);
+    box-shadow: 0 0 15px var(--anime-neon-pink);
+}
+
+/* Selected Tab Effect: Stronger background and glow */
+.side_aa8da2 .selected_aa8da2 {
+    background: var(--anime-neon-blue) !important;
+    color: white !important;
+    font-weight: 800 !important;
+    transform: scale(1.05) translateX(8px);
+    box-shadow: 0 0 20px var(--anime-neon-blue);
+    border-left: 5px solid white !important;
+    padding-left: 5px !important;
+}
+
+/* Remove default selected underline/bar */
+.selected_aa8da2:after {
+    display: none !important;
+}
+
 
 /* --- REST OF ORIGINAL MODAL/SETTINGS CODE (PRESERVED) --- */
 
@@ -258,11 +316,13 @@ html.theme-light #app-mount .root__5c9fc {
 html.theme-dark .field__1fed1 {
     background-color: rgba(51, 49, 53, 0.7) !important;
     backdrop-filter: blur(4px);
+    border-radius: 12px;
 }
 
 html.theme-light .field__1fed1 {
     background-color: rgba(228, 228, 228, 0.8) !important;
     backdrop-filter: blur(4px);
+    border-radius: 12px;
 }
 
 
@@ -275,11 +335,6 @@ html.theme-light .field__1fed1 {
 
 .premiumFeatureBorder__65c15 {
     background: linear-gradient(var(--background-primary), var(--background-primary)) padding-box border-box;
-}
-
-/* hide hover underline on selected tab */
-.selected_aa8da2:after {
-    background: transparent !important;
 }
 
 .side_aa8da2 .item_aa8da2::after {
