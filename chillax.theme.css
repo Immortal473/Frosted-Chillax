@@ -83,7 +83,7 @@ div[class^=micButtonParent__] {
     --edited-message: "✏️";
     --font-name: Fascinate Inlin;
     --font-size: 17px;
-    --group-chat-font: "Regular"; /* change this to change the group chat's default font */
+    --group-chat-font: "Default"; /* change this to change the group chat's default font */
 
 
        /*glow radial status*/ /*must end in px*/
