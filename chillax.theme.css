@@ -48,10 +48,10 @@
 /*window*/ /*dark mode*/
 :root.theme-dark {
     --window-margin: 20px; /*must be above 20px*/
-    --window-colour: rgba(148, 148, 148, 0.4);
+    --window-colour: rgba(148, 148, 148, 0);
     --window-blur: 0px;
     --window-border-radius: 20px;
-    --sidebar-colour: rgba(148, 148, 148, 0.4);
+    --sidebar-colour: rgba(148, 148, 148, 0);
 }
 
 /*window*/ /*light mode*/
