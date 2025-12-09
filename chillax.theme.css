@@ -28,6 +28,17 @@
 @import url("https://davart154.github.io/Themes/Snippets/Chat%20Bar%20Context%20Menu/ChatContextMenuSource.css");
 @import url("https://rinlovesyou.github.io/Couve/snippets/couve-profile-popout.css");
 
+/* hide menus next to mute and deafen buttons */
+div[class^=micButtonParent__] {
+  button[role="switch"] {
+    border-radius: var(--radius-sm) !important;
+    
+    ~ button {
+      display: none;
+    }
+  }
+}
+
 /*additional addons*/ /*(remove the both * to use)*/
 /*use the below css if you are experiencing lag (remove the both * to use)*/
 /*@import url("https://warrayquipsome.github.io/Chillax/Addons/SimpleLessLag.css");*/
