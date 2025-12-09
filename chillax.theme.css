@@ -89,36 +89,23 @@
     --rs-phone-visible: block; /* change it to `none` to disable mobile icon */
     --rs-phone-color: var(--rs-online-color);
 
-    /* For accent color to take full effect must need to change both */
-    /* chillax colours rgb */
-    --accentcolor: 148, 148, 148;
-    /* chillax colours hex */
-    --accentcolorV2: #949494;
-
 
     --anime-neon-pink: #ff00ff; 
     --anime-neon-blue: #00ffff;
     --anime-glow: 0 0 50px var(--anime-neon-pink), 0 0 25px var(--anime-neon-blue);
 
  
-    --floating-bg-dark: var(--wallpaper); 
-    --floating-bg-light: var(--wallpaper);
     --glass-blur: 12px;
     --main-border-radius: 25px; /* For large elements (e.g., chat input) */
     --accentcolor: 0, 255, 0; /* Vivid Green RGB */
     --accentcolorV2: #39ff14; /* Vivid Green Hex */
+    --float-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Floating Effect */
+    --float-margin: 15px; /* Separation */
 
 
     --rgb-border-width: 4px;
-    --main-border-radius: 25px; /* Fully rounded */
     --rgb-gradient: linear-gradient(45deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3);
     --rgb-animation-duration: 8s;
-
-    --floating-bg-dark: rgba(15, 15, 15, 0.45); /* Dark Frosted Glass Background */
-    --floating-bg-light: rgba(255, 255, 255, 0.65); /* Light Frosted Glass Background */
-    --glass-blur: 12px; /* Frosted Glass Effect */
-    --float-shadow: 0 10px 40px rgba(0, 0, 0, 0.6); /* Floating Effect */
-    --float-margin: 15px; /* Separation */
 
 
     /* settings modal root */
