@@ -1,16 +1,6 @@
-/* === REQUIRED CORE VARIABLES (Assumed to be defined in your main theme) === */
-:root {
-    --floating-bg-dark: rgba(15, 15, 15, 0.45); 
-    --floating-bg-light: rgba(255, 255, 255, 0.65);
-    --glass-blur: 12px;
-    --main-border-radius: 25px; /* For large elements (e.g., chat input) */
-    --accentcolor: 0, 255, 0; /* Vivid Green RGB */
-    --accentcolorV2: #39ff14; /* Vivid Green Hex */
-}
-
 /* Styles for the main chat area as well as the channel list */
 
-/*custom channel and text area font and size (preserved) */
+/*custom channel and text area font and size*/
 .title__9293f {
     font-family: var(--font-name);
     font-size: var(--font-size) !important;
@@ -26,7 +16,7 @@
     font-family: var(--font-name);
 }
 
-/* custom "new unreads" pill (preserved) */
+/* custom "new unreads" pill */
 .container__7aaec.bottom__7aaec {
     z-index: 9999 !important;
 }
@@ -39,7 +29,7 @@
     display: none;
 }
 
-/* Unread divider text (preserved) */
+/* Unread divider */
 .text-xs-medium-2LRpEj {
     margin-left: 5px !important;
 }
@@ -52,81 +42,70 @@
     content: " ◂";
 }
 
-/*remove unread with date (preserved) */
+/*remove unread with date*/ /*it causes issue with the theme*/
 .hasContent__5126c {
     display: none;
 }
 
-/* remove date divider (preserved) */
+/* remove date divider */
 .hasContent__908e2 {
     display: none;
 }
 
-/* Un-hide unread divider with date (preserved) */
+/* Un-hide unread divider with date */
 .isUnread__908e2 {
     display: flex !important;
 }
 
-/* Hide date in unread divider (preserved) */
+/* Hide date in unread divider */
 .content__908e2 {
     display: none;
 }
 
-/* *** VIVID & CURVED UNREAD DIVIDER STYLES *** */
-.isUnread__908e2 {
-    --divider-color: var(--accentcolorV2); /* VIVID ACCENT */
-    border: none;
-    /* Use vivid green accent for the line glow */
-    background: linear-gradient(
-        90deg,
-        rgba(var(--accentcolor), 1) 0%,
-        var(--accentcolorV2) 25%,
-        rgba(0, 0, 0, 0) 50%,
-        var(--accentcolorV2) 75%,
-        rgba(var(--accentcolor), 1) 100%
-    );
-    height: 2px; /* Thicker line */
-    box-shadow: 0 0 10px var(--accentcolorV2); /* Vivid glow */
-}
-
-/* Unread Pill */
-.unreadPill__908e2 {
-    /* FROSTED & CURVED */
-    top: -10px; /* Adjust position for curved line */
-    background-color: var(--floating-bg-dark) !important;
-    backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: 15px; /* CURVED PILL */
-    padding: 4px 15px;
-    
-    /* VIVID TEXT */
-    color: var(--accentcolorV2) !important;
-    box-shadow: 0 0 10px var(--accentcolorV2); /* Vivid glow */
-    font-weight: 700;
-    letter-spacing: 5px; 
-    width: auto;
-    right: auto;
-    left: auto;
-}
-
+/*custom unread divider style*/
 .unreadPillCap__908e2 {
     display: none;
+    right: 50%;
 }
 
-
-/* *** FROSTED & CURVED MESSAGE HOVER BUTTONS *** */
-.wrapper_f7ecac {
-    background-color: var(--floating-bg-dark) !important;
-    backdrop-filter: blur(var(--glass-blur)) !important;
-    border-radius: 12px; /* Nicely curved */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(var(--accentcolor), 0.1); /* Subtle accent border */
+.unreadPill__908e2 {
+    background-color: var(--background-shading);
+    color: #fb5454;
+    font-size: 12px;
+    letter-spacing: 20px;
+    right: 50%;
+    left: 50%;
+    width: 30px;
 }
+
+.isUnread__908e2 {
+    --divider-color: rgb(237, 0, 255);
+    border: none;
+    background: linear-gradient(
+            90deg,
+            rgba(237, 0, 255, 1) 0%,
+            #fb5454 25%,
+            rgba(0, 0, 0, 0) 50%,
+            #fb5454 75%,
+            rgba(254, 0, 255, 1) 100%
+    );
+    height: 1px;
+}
+
+.unreadPill__908e2 {
+    top: -6px;
+}
+
+/*message hover small buttons fix*/
+html.theme-dark .wrapper_f7ecac {
+    background: rgb(51, 49, 53) !important;
+}
+
 html.theme-light .wrapper_f7ecac {
-    background-color: var(--floating-bg-light) !important;
+    background: rgb(243, 243, 243) !important;
 }
 
-
-/*channel resize (preserved)*/
+/*channel resize*/
 .sidebar__5e434 .name__2ea32 {
     font-size: 14px;
 }
@@ -136,7 +115,7 @@ html.theme-light .wrapper_f7ecac {
     height: 16px;
 }
 
-/* Video player controls (preserved) */
+/* Video player controls */
 .videoControls_cf09d8 {
     width: auto;
     margin: 15px;
@@ -151,7 +130,7 @@ html.theme-light .wrapper_f7ecac {
     margin-bottom: -30px;
 }
 
-/* user typing... but its edited (preserved)*/
+/* user typing... but its edited*/
 .dots-1BwzZQ {
     margin-right: 5px;
 }
@@ -203,6 +182,196 @@ html.theme-light .wrapper_f7ecac {
     font-weight: 400;
     margin-top: -5px;
     margin-left: 4px;
+}
+
+/*chatbox recolour*/
+.input-2g-os5,
+.scrollableContainer__74017 {
+    background-color: transparent !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    outline: none;
+    border-radius: 15px;
+}
+
+.placeholder__1b31f.slateTextArea_ec4baf.fontSize16Padding__74017 {
+    color: transparent !important;
+}
+
+html.theme-dark .input-2g-os5:hover,
+html.theme-dark .scrollableContainer__74017:hover {
+    background-color: #00000023 !important;
+}
+
+html.theme-light .input-2g-os5:hover,
+html.theme-light .scrollableContainer__74017:hover {
+    background-color: #ffffff23 !important;
+}
+
+/* attachedBars is the reply bar */
+html.theme-dark .input-2g-os5:focus-within,
+html.theme-dark .scrollableContainer__74017:focus-within {
+    background-color: #181a1d !important;
+    box-shadow: 0 5px 8px #15171a;
+}
+
+html.theme-light .input-2g-os5:focus-within,
+html.theme-light .scrollableContainer__74017:focus-within {
+    background-color: #e4e4e4 !important;
+    box-shadow: 0 5px 8px #d6d6d6;
+}
+
+.message__5126c {
+    border-radius: 8px !important;
+}
+
+.mentioned__5126c {
+    border-radius: 0 8px 8px 0 !important
+}
+
+/*Textbox Text*/
+.placeholder__1b31f {
+    visibility: hidden !important;
+}
+
+.placeholder__1b31f::before {
+    content: var(--chillax-input-field);
+    font-family: "Poppins";
+    font-size: 13px;
+    visibility: visible !important;
+}
+
+html.theme-dark .placeholder__1b31f::before {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+html.theme-light .placeholder__1b31f::before {
+    color: rgba(0, 0, 0, 0.2);
+}
+
+/* Change the message in the messagebox when you're restricted from sending messages in that channel. */
+.innerDisabled__74017 .placeholder__1b31f::before {
+    content: var(--chillax-input-field-locked) !important;
+}
+
+/* Fix slight scroll when text box is empty */
+.inner__74017 {
+    overflow: hidden !important;
+}
+
+/* Apps button next to text box */
+.button_e6e74f {
+    background-color: transparent;
+    transition: background-color 0.2s ease;
+}
+
+.button_e6e74f:hover {
+    background-color: #00000023;
+}
+
+.buttonActive_e6e74f {
+    background-color: #181a1d;
+}
+
+/* Place typing indicator on top of message input box */
+.form_f75fb0 {
+    display: flex;
+    flex-direction: column;
+}
+
+.form_f75fb0 > div:first-child {
+    /* Input box order */
+    order: 2;
+}
+
+.channelTextArea_f75fb0 {
+    /* Remove margin for original typing indicator position */
+    margin-bottom: calc(var(--space-8) - 2px);
+}
+
+/* When not focused, input box is transparent */
+.visual-refresh .channelTextArea_f75fb0 {
+    background: transparent !important;
+}
+
+.form_f75fb0:has(.base_b88801) .form_f75fb0 {
+    /* Add margin to the top when typing/slowmode indicator is active */
+    margin-top: var(--custom-chat-input-margin-bottom);
+}
+
+.base_b88801 {
+    /* Indicator order */
+    position: static;
+    order: 1;
+}
+
+/* Background in list of people who reacted to a message */
+.container_b7f4b4,
+.reactors_b7f4b4 {
+    background-color: #181a1db7;
+}
+
+html.theme-dark .container_faa96b.isOpen_faa96b {
+    background-color: #181a1d;
+}
+
+html.theme-dark .container-2qVG6q:hover {
+    background-color: #181a1db7;
+}
+
+html.theme-dark .container_faa96b.isOpen_faa96b {
+    background-color: #181a1d;
+}
+
+.scroller_b7f4b4 {
+    background-color: #00000050;
+}
+
+/* Remove slowmode message */
+.cooldownWrapper_b21699 {
+    font-size: 0px;
+}
+
+/* Increase visibility of message highlight */
+.backgroundFlash__5126c[style*="background-color: rgba(148, 156, 247, 0)"] {
+    --message-background-flash: rgba(var(--accentcolor), 0.2) !important;
+}
+
+/* Make unread DM's highlighted based on accent color */
+.link__972a0:has(.highlighted__20a53) {
+    border-left: 2px solid rgba(var(--accentcolor), 0.8);
+    background: linear-gradient(
+            90deg,
+            rgba(var(--accentcolor), 0.3),
+            rgba(var(--accentcolor), 0.2),
+            transparent
+    );
+}
+
+/* Right click menu blur */
+html.theme-dark .menu_c1e9c4 {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+html.theme-light .menu_c1e9c4 {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.menu_c1e9c4::before,
+.menu_c1e9c4.submenu-1apzyU::before {
+    /*Blurs the menu*/
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(15px);
+    z-index: -1;
+    border-radius: 5px;
+}
+
+/* Fix blur in nested floating menu */
+.submenu_c1e9c4.menu_c1e9c4::before {
+    width: calc(100% - 16px);
 }
 
 
