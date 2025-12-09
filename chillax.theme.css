@@ -20,6 +20,7 @@
 
 /* 𝓒𝓱𝓲𝓵𝓵𝓪𝔁 𝓑𝓾𝓽 𝓑𝓮𝓽𝓽𝓮𝓻 theme entry point */
 @import url("https://raw.githubusercontent.com/Immortal473/Frosted-Chillax/refs/heads/main/chillax.css");
+@import url('https://fonts.googleapis.com/css2?family=Fascinate+Inline&display=swap');
 
 /* removable addons *//* add your favourite css snipets here */
 @import url("https://blade04208.github.io/css/dribbblish.css");
@@ -80,9 +81,9 @@ div[class^=micButtonParent__] {
 :root {
     --user-name: "Master";
     --edited-message: "✏️";
-    --font-name: KDH;
+    --font-name: Fascinate Inlin;
     --font-size: 17px;
-    --group-chat-font: "Default"; /* change this to change the group chat's default font */
+    --group-chat-font: "Fascinate Inlin"; /* change this to change the group chat's default font */
 
 
        /*glow radial status*/ /*must end in px*/
