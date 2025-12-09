@@ -96,6 +96,10 @@
     --accentcolorV2: #949494;
 
 
+    --anime-neon-pink: #ff00ff; 
+    --anime-neon-blue: #00ffff;
+
+
     /* settings modal root */
     --themelightsettingsmodalbackground: rgba(157, 210, 220, 0.515);
     --themedarksettingsmodalbackground: rgba(11, 9, 77, 0.515);
