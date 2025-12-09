@@ -2924,3 +2924,126 @@ html.theme-light .modeSelected__2ea32 .name__2ea32 {
     display: none !important;
 }
 
+
+
+
+
+
+
+
+
+
+/* === FROSTED GLASS & FLOATING ADDON === */
+
+/* --- Variables for Consistency --- */
+/* (Ensure these match the variables you set in the main theme for the effect) */
+:root {
+    --floating-bg-dark: rgba(0, 0, 0, 0.4);
+    --floating-bg-light: rgba(255, 255, 255, 0.6);
+    --glass-blur: 10px;
+    --float-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --float-radius: 15px;
+}
+
+
+/* --- 1. All Modals (User Settings, Server Creation, Login, etc.) --- */
+
+.rootWithLayer_c85257, /* The full layer containing all modals */
+.root_d18080, /* Base for most modals */
+.layer_ec1966, /* Base for user settings */
+.contentRegion_f932e6, /* Settings content area */
+.sidebarRegion__597c4, /* Settings sidebar */
+.footer_f932e6 /* Settings footer */
+{
+    background-color: var(--floating-bg-dark) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    border-radius: var(--float-radius) !important;
+    box-shadow: var(--float-shadow) !important;
+    
+    /* Ensure no double backgrounds inside modals */
+    & * {
+        background-color: transparent !important;
+    }
+    
+    /* Light theme support */
+    .theme-light & { 
+        background-color: var(--floating-bg-light) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+/* Fix for inner content areas in settings/modals to be transparent */
+.content__0c295, .scroller__83603, .sidebar_d34a47 {
+    background: transparent !important;
+}
+
+
+/* --- 2. Popouts, Context Menus, & Dropdowns --- */
+
+.menu_d96c9f, /* Context Menus (right-click) */
+.popout__52a80, /* General Popouts (e.g., status selector) */
+.root__8d3c1, /* Newer Popouts (e.g., thread/channel settings) */
+.userPopout-2j1gM4 /* User Popout/Profile Card */
+ {
+    background-color: var(--floating-bg-dark) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    border-radius: var(--float-radius) !important;
+    box-shadow: var(--float-shadow) !important;
+    padding: 5px;
+
+    /* Light theme support */
+    .theme-light & {
+        background-color: var(--floating-bg-light) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+/* Make inner parts of menus transparent to see frosted background */
+.scroller_d96c9f, .scroller__79d02 {
+    background: transparent !important;
+}
+
+/* --- 3. Friends List / DM List Container --- */
+/* Floating the entire left content pane */
+.privateChannels_e6b769 {
+    background-color: var(--floating-bg-dark) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    border-radius: var(--float-radius) !important;
+    box-shadow: var(--float-shadow) !important;
+    margin-right: 10px; /* Floating space */
+    
+    .theme-light & {
+        background-color: var(--floating-bg-light) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+/* --- 4. Tooltips (Small hover boxes) --- */
+.tooltip_d21c70 {
+    background-color: var(--floating-bg-dark) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    border-radius: 8px !important;
+    box-shadow: var(--float-shadow) !important;
+    
+    /* Light theme support */
+    .theme-light & { 
+        background-color: var(--floating-bg-light) !important;
+    }
+}
+
+/* Fix for tooltip arrow to prevent an opaque block */
+.tooltipPointer_c69f0b {
+    border-color: transparent !important;
+}
+
+/* --- 5. Fix for call/screenshare panels (floating appearance) --- */
+.callContainer_b8f36c {
+    background-color: var(--floating-bg-dark) !important;
+    backdrop-filter: blur(var(--glass-blur)) !important;
+    border-radius: var(--float-radius) !important;
+    box-shadow: var(--float-shadow) !important;
+    
+    .theme-light & { 
+        background-color: var(--floating-bg-light) !important;
+    }
+}
